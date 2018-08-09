@@ -627,6 +627,10 @@ extern "C" {
     pub fn invalidate_tex_all();
     #[link_name = "GXSetProjection"]
     pub fn set_projection(mtx: *mut Mtx44, typ: u8);
+    #[link_name = "GXSetScissor"]
+    pub fn set_scissor(x_origin: u32, y_origin: u32, width: u32, height: u32);
+    #[link_name = "GXGetScissor"]
+    pub fn get_scissor(x_origin: &mut u32, y_origin: &mut u32, width: &mut u32, height: &mut u32);
 }
 
 pub unsafe fn set_tex_coord_gen(texcoord: u16, tgen_typ: u32, tgen_src: u32, mtxsrc: u32) {
