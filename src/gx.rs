@@ -4,6 +4,7 @@
 //! Documentation: http://libogc.devkitpro.org/gx_8h.html
 
 use core::ptr::write_volatile;
+use core::borrow::Borrow;
 
 const WG_PIPE: usize = 0xCC008000;
 
@@ -650,9 +651,13 @@ pub fn submit_f32(val: f32) {
     }
 }
 
-pub fn submit_f32s(arr: &[f32]) {
-    for &v in arr {
-        submit_f32(v);
+pub fn submit_f32s<I, F>(arr: I)
+where
+    I: IntoIterator<Item = F>,
+    F: Borrow<f32>,
+{
+    for v in arr {
+        submit_f32(*v.borrow());
     }
 }
 
