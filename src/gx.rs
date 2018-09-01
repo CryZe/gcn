@@ -3,8 +3,8 @@
 //! Based on https://github.com/devkitPro/libogc/blob/90b38ee52cb14db11ee961b0e167fda9ed87d090/gc/ogc/gx.h
 //! Documentation: http://libogc.devkitpro.org/gx_8h.html
 
-use core::ptr::write_volatile;
 use core::borrow::Borrow;
+use core::ptr::write_volatile;
 
 const WG_PIPE: usize = 0xCC008000;
 
