@@ -1,11 +1,11 @@
-use arrayvec::{Array, ArrayString, ArrayVec};
+use arrayvec::{Array, ArrayString};
+#[cfg(feature = "serialize")]
+use arrayvec::ArrayVec;
 #[cfg(feature = "serialize")]
 use bincode;
 use core::fmt::Write;
 use core::i32;
-use core::ops::Deref;
-#[cfg(feature = "serialize")]
-use core::ops::DerefMut;
+use core::ops::{Deref, DerefMut};
 use core::result;
 #[cfg(feature = "serialize")]
 use serde::{Deserialize, Serialize};
