@@ -1,6 +1,6 @@
-use core::fmt::{Arguments, Write, Error};
-use os;
 use arrayvec::ArrayString;
+use core::fmt::{Arguments, Error, Write};
+use os;
 
 struct Writer<'a>(&'a mut ArrayString<[u8; 1024]>);
 

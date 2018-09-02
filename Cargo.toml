@@ -5,3 +5,9 @@ authors = ["Christopher Serr <christopher.serr@gmail.com>"]
 
 [dependencies]
 arrayvec = { version = "0.4.7", default-features = false }
+bincode = { git = "https://github.com/CryZe/bincode", branch = "core", optional = true }
+serde = {version = "1.0.75", default-features = false, optional = true }
+
+[features]
+default = []
+serialize = ["bincode", "serde"]
