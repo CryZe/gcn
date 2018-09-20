@@ -11,4 +11,4 @@ serde = {version = "1.0.75", default-features = false, optional = true }
 [features]
 default = []
 serialize = ["bincode", "serde"]
-panic-report = []
+panic = []
