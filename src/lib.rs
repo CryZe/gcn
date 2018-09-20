@@ -6,8 +6,12 @@ extern crate bincode;
 #[cfg(feature = "serialize")]
 extern crate serde;
 
+#[macro_use]
+pub mod print;
+
 pub mod card;
 pub mod gx;
 pub mod os;
-pub mod print;
+#[cfg(feature = "panic-report")]
+pub mod panic;
 pub mod time;

@@ -52,3 +52,31 @@ macro_rules! report {
         $crate::print::report(&format_args!($fmt, $($arg)+))
     });
 }
+
+#[macro_export]
+#[cfg(debug_assertions)]
+macro_rules! debug_report {
+    ($msg:expr) => ({
+        $crate::print::report(&format_args!($msg))
+    });
+    ($msg:expr,) => ({
+        report!($msg)
+    });
+    ($fmt:expr, $($arg:tt)+) => ({
+        $crate::print::report(&format_args!($fmt, $($arg)+))
+    });
+}
+
+#[macro_export]
+#[cfg(not(debug_assertions))]
+macro_rules! debug_report {
+    ($msg:expr) => ({
+        drop($msg);
+    });
+    ($msg:expr,) => ({
+        drop($msg);
+    });
+    ($fmt:expr, $($arg:tt)+) => ({
+        drop($($arg)+);
+    });
+}
